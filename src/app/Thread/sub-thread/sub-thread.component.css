@@ -1,0 +1,13 @@
+.content{
+    width: 80%;
+    margin-left: 10%;
+    padding-bottom: 50px;
+}
+
+.metadata{
+    float: right;
+}
+
+.houdkleurtje{
+    color: rgba(0,0,0,.4);
+}

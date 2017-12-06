@@ -1,0 +1,15 @@
+<form *ngIf='currentUser else pleaselogin' #f='ngForm' [formGroup]='subThreadForm' (ngSubmit)='onSubmit()' class="ui form">
+  <h2>Add new reaction</h2>
+  <div class="field">
+    <label>Description</label>
+    <textarea placeholder="Description" formControlName='description' [(ngModel)]='inhoud' name='inhoud' ngModel></textarea>
+  </div>
+  <button [disabled]='!subThreadForm.valid' type="submit" class="ui blue labeled submit icon button">
+    <i class="icon edit"></i>Post
+  </button>
+</form>
+
+
+<ng-template #pleaselogin>
+  <h2>Please log in to post a new reaction!</h2>
+</ng-template>

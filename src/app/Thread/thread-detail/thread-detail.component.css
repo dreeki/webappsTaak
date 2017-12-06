@@ -1,0 +1,34 @@
+.lijntjeweg{
+    border-top: 0 !important;
+}
+
+.blijfklein{
+    display: inline-block;
+    margin: 0 !important;
+}
+
+.blijfZwart{
+    color: black;
+}
+
+.hartje{
+    color: red;
+}
+
+.menu{
+    display: none;
+    right: -25px !important;
+    left: auto !important;
+}
+
+.dropdown:hover + .menu{
+    display: block;
+}
+
+.menu:hover{
+    display: block;
+}
+
+.beetjePadding{
+    padding-bottom: 5px;
+}

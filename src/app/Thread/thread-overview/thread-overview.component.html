@@ -1,0 +1,16 @@
+<h2>Forum</h2>
+<table class="ui fixed single line celled table">
+  <thead>
+    <tr>
+      <th class="rTablePostedBy">Posted By</th>
+      <th class="rTableTitel">Title</th>
+      <th class="rTableDescription">Description</th>
+      <th class="rTablePostDate">Posted</th>
+      <th class="rTableAantalReacties">Reactions</th>
+      <th class="rTableAantalLikes">Likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let myThread of threads" [thread]="myThread" app-thread></tr>
+  </tbody>
+</table>

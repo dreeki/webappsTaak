@@ -1,0 +1,14 @@
+<div class="comment">
+  <!--<a class="avatar">
+    <img src="/images/avatar/small/matt.jpg">
+  </a>-->
+  <div class="content">
+    <a [routerLink]="['/profile/', subThread?.username]" class="author">{{subThread?.username}}</a>
+    <div class="metadata">
+      <span class="date">{{subThread?.postDate}}</span><a class="houdkleurtje" (click)="onDeleteClick()" *ngIf="canDelete" ><i class="remove icon"></i></a>
+    </div>
+    <div class="text" [innerHTML]="subThread?.description">
+    </div>
+  </div>
+</div>
+  

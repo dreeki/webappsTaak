@@ -1,0 +1,27 @@
+.rTablePostedBy{
+    width: 10%;
+}
+
+.rTableTitel{
+    width: 15%;
+}
+
+.rTableDescription{
+    width: 40%;
+}
+
+.rTablePostDate{
+    width: 15%;
+}
+
+.rTableAantalReacties{
+    width: 10%;
+}
+
+.rTableAantalLikes{
+    width: 10%;
+}
+
+td{
+    cursor: pointer;
+}
