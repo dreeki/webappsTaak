@@ -8,7 +8,7 @@ import { Thread } from '../Thread/thread.model';
 @Injectable()
 export class UserDataService {
 
-  private _appUrl = 'http://localhost:4200/API/users/';
+  private _appUrl = '/API/users/';
   
   constructor(private http: Http, private auth: AuthenticationService) { }
 

@@ -8,7 +8,7 @@ import { SubThread } from './sub-thread/sub-thread.model';
 
 @Injectable()
 export class ThreadDataService {
-  private _appUrl = 'http://localhost:4200/API/threads/';
+  private _appUrl = '/API/threads/';
 
   constructor(private http: Http, private auth: AuthenticationService) { }
 
