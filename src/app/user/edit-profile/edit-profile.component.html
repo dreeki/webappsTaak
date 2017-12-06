@@ -1,0 +1,37 @@
+<form [formGroup]='editProfileForm' (ngSubmit)='onSubmit()' class="ui large form segment">
+  <h3 class="ui header">Profile of {{user?.username}}</h3>
+
+  <div class="two fields">
+    <div class="field">
+      <label for="firstname">firstname:</label>
+      <input type="text" id="firstname" formControlName='firstname' placeholder="Firstname">
+      <div class='ui pointing red basic label' *ngIf=' editProfileForm.get("firstname").errors?.required && editProfileForm.get("firstname").touched'>
+        a firstname is required
+      </div>
+    </div>
+    <div class="field">
+      <label for="lastname">lastname:</label>
+      <input type="text" id="lastname" formControlName='lastname' placeholder="Lastname">
+      <div class='ui pointing red basic label' *ngIf=' editProfileForm.get("lastname").errors?.required && editProfileForm.get("lastname").touched'>
+        a lastname is required
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label for="country">country:</label>
+      <input type="text" id="country" formControlName='country' placeholder="Country">
+      <div class='ui pointing red basic label' *ngIf=' editProfileForm.get("country").errors?.required && editProfileForm.get("country").touched'>
+        a country is required
+      </div>
+    </div>
+    <div class="field">
+        <label for="birthDate">birth date:</label>
+        <input type="date" id="birthDate" formControlName='birthDate'>
+        <div class='ui pointing red basic label' *ngIf=' editProfileForm.get("birthDate").errors?.required && editProfileForm.get("birthDate").touched'>
+          a birthDate is required
+        </div>
+      </div>
+  </div>
+  <button type='submit' [disabled]='!editProfileForm.valid' class="ui positive right floated button">Edit</button>
+</form>

@@ -1,0 +1,39 @@
+h2{
+    margin-top: 100px;
+}
+
+h4{
+    margin-top: 40px;
+}
+
+div{
+    margin-top: 40px;
+}
+
+p, div, h1, h2, h4{
+    text-align: center;
+}
+
+.rTableTitel{
+    width: 20%;
+}
+
+.rTableDescription{
+    width: 45%;
+}
+
+.rTablePostDate{
+    width: 15%;
+}
+
+.rTableAantalReacties{
+    width: 10%;
+}
+
+.rTableAantalLikes{
+    width: 10%;
+}
+
+table {
+    margin-bottom: 50px !important;
+}

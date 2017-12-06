@@ -1,0 +1,16 @@
+<div class="ui large menu">
+  <div class="right menu">
+      <a class="item" routerLink="/threads" [routerLinkActive]="['active']" >Overview</a>
+      <a class="item" routerLink="/addThreads" [routerLinkActive]="['active']" >Add Thread</a>
+    <div *ngIf='(currentUser | async) else loginknop' class="ui simple dropdown item">
+        Hallo, {{currentUser|async}} <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" [routerLink]="['/profile', currentUser | async]">My Profile</a>
+        <a class="item" routerLink="/logout">Sign Off</a>
+      </div>
+    </div>
+    <ng-template #loginknop>
+      <a class="item" routerLink="/login">log in</a>
+    </ng-template>
+  </div>
+</div>

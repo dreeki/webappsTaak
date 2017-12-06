@@ -1,0 +1,38 @@
+<div class="ui one column grid geenMargins">
+  <div class="ui card one column grid">
+    <div>
+      <h3>
+        <a [routerLink]="['/profile/', thread?.username]" class="author">{{thread?.username}}</a>
+      </h3>
+    </div>
+    <div class="content">
+      <div class="right floated meta">{{thread?.postDate}}<a class="houdkleurtje" (click)="onDeleteClick()" *ngIf="canDelete" ><i class="remove icon"></i></a></div>
+      <h4 class="blijfklein">{{thread?.title}}</h4>
+    </div>
+    <div>
+      <p [innerHTML]="thread?.descriptionBig">
+      </p>
+    </div>
+    <div class="content lijntjeweg">
+      <span class="right floated ui dropdown">
+        <i *ngIf='currentUser' [ngClass]="userInLikes?'hartje':''" class="heart outline like icon" (click)='toggleLike()'></i>
+        <a class='blijfZwart beetjePadding dropdown'>{{thread?.aantalLikes}} likes</a>
+        <div class="menu">
+          <div class="item" *ngFor="let myLike of likes" [routerLink]="['/profile/', myLike]">{{myLike}}</div>
+        </div>
+      </span>
+      <i class="comment icon"></i>
+      {{thread?.aantalReacties}} reactions
+    </div>
+    <div class="ui comments">
+      <h3 class="ui dividing header">Reactions</h3>
+      <div>
+        <app-sub-thread *ngFor="let mySubThread of subThreads" (subThreadDeleted)="deleteSubThread($event)" [hoofdThreadMaker]="thread?.username"
+          [subThread]="mySubThread"></app-sub-thread>
+      </div>
+    </div>
+    <div class="extra content">
+      <app-add-sub-thread (subThreadAdded)="addSubThread($event)" [threadId]="thread?.id"></app-add-sub-thread>
+    </div>
+  </div>
+</div>

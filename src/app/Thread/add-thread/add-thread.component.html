@@ -1,0 +1,20 @@
+<form [formGroup]='threadForm' (ngSubmit)='onSubmit()' class="ui form">
+  <h2>Add new Thread</h2>
+  <div class="field">
+    <label>Title</label>
+    <input type="text" placeholder="Title" formControlName='title' />
+    <div class='ui pointing red basic label' *ngIf=' threadForm.get("title").errors?.required && threadForm.get("title").touched'>
+        a title is required
+      </div>
+  </div>
+  <div class="field">
+    <label>Description</label>
+    <textarea placeholder="Description" formControlName='description'></textarea>
+    <div class='ui pointing red basic label' *ngIf=' threadForm.get("description").errors?.required && threadForm.get("description").touched'>
+        a description is required
+      </div>
+  </div>
+  <button type="submit" class="ui blue labeled submit icon button" [disabled]="!threadForm.valid">
+    <i class="icon edit"></i>Add
+  </button>
+</form>

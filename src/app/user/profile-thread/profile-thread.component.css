@@ -1,0 +1,23 @@
+.rTableTitel{
+    width: 20%;
+}
+
+.rTableDescription{
+    width: 45%;
+}
+
+.rTablePostDate{
+    width: 15%;
+}
+
+.rTableAantalReacties{
+    width: 10%;
+}
+
+.rTableAantalLikes{
+    width: 10%;
+}
+
+td{
+    cursor: pointer;
+}

@@ -1,0 +1,29 @@
+<h1>Profile of {{user?.username}}</h1>
+<h4>Name:</h4>
+<p>{{user?.firstname}} {{user?.lastname}}</p>
+<h4>Age:</h4>
+<p>{{user?.age}}</p>
+<h4>Country:</h4>
+<p>{{user?.country}}</p>
+<h4>My Threads:</h4>
+<p>{{user?.aantalThreads}}</p>
+<div>
+  <a *ngIf="user && user.username === currentUser" [routerLink]="['/profile/edit/profile/', user?.username]" class="ui blue button">Change Profile</a>
+  <a *ngIf="user && user.username === currentUser" [routerLink]="['/profile/edit/password/', user?.username]" class="ui red button">Change Password</a>
+</div>
+
+<h2>Threads from {{user?.username}}:</h2>
+<table class="ui fixed single line celled table">
+  <thead>
+    <tr>
+      <th class="rTableTitel">Title</th>
+      <th class="rTableDescription">Description</th>
+      <th class="rTablePostDate">Posted</th>
+      <th class="rTableAantalReacties">Reactions</th>
+      <th class="rTableAantalLikes">Likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let myThread of user?.threads" [thread]="myThread" app-profile-thread></tr>
+  </tbody>
+</table>
