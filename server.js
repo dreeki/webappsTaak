@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 let passport = require('passport');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/forum', {useMongoClient:true});
+mongoose.connect(process.env.DATABASE, {useMongoClient:true});
 
 require('./projectbackend/models/User');
 require('./projectbackend/models/Thread');
