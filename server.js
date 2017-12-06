@@ -25,8 +25,8 @@ app.use(express.static(__dirname + '/dist'));
 app.listen(process.env.PORT || 4200);
 
 // view engine setup
-app.set('views', path.join(__dirname / '/projectbackend', 'views'));
-app.set('view engine', 'jade');
+//app.set('views', path.join(__dirname / '/projectbackend', 'views'));
+//app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
