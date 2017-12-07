@@ -4,6 +4,13 @@ let mongoose = require('mongoose');
 let passport = require('passport');
 let User = mongoose.model('User');
 
+let jwt = require('express-jwt');
+
+let auth = jwt({
+  secret: process.env.PROJECT_BACKEND_SECRET,
+  userProperty: 'payload'
+});
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -71,7 +78,7 @@ router.post('/checkusername', function (req, res, next) {
   // }
 });
 
-router.patch('/edit/:id', function (req, res, next) {
+router.patch('/edit/:id', auth,function (req, res, next) {
   User.findById(req.params.id, function (err, user) {
     if (err) return next(err);
     if (!user) return next(new Error("User not found"));
@@ -90,7 +97,7 @@ router.patch('/edit/:id', function (req, res, next) {
 
 });
 
-router.post('/checkpassword/:id', function (req, res, next) {
+router.post('/checkpassword/:id', auth,function (req, res, next) {
   User.findOne({
     username: req.params.id
   }, function (err, user) {
@@ -138,7 +145,7 @@ router.get('/:username', function (req, res, next) {
   });
 });
 
-router.patch('/edit/password/:id', function (req, res, next) {
+router.patch('/edit/password/:id', auth, function (req, res, next) {
   User.findById(req.params.id, function (err, user) {
     if (err) return next(err);
     if (!user) return next(new Error("User not found"));

@@ -22,7 +22,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this._currentUser = this._authService.user$.getValue();
     this._route.data.takeUntil(this.unsubscribe).subscribe(item => this._user = item['user']);
-    this._route.paramMap.takeUntil(this.unsubscribe).subscribe(pa => this._userService.getUser(pa.get('username')).subscribe(item => {this._user = item}));
+    this._route.paramMap.takeUntil(this.unsubscribe).subscribe(pa => this._userService.getUser(pa.get('username')).subscribe(item => {
+      this._user = item; 
+      this._user.threads.sort(compareDate);
+    }));
   }
 
   public get user(): User {
@@ -32,4 +35,40 @@ export class ProfileComponent implements OnInit {
   public get currentUser():string {
     return this._currentUser
   }
+
+  public sorteerLikes(): any{
+    this._user.threads.sort(compareLikes);
+  }
+
+  public sorteerDatum(): any{
+    this._user.threads.sort(compareDate);
+  }
+
+  public sorteerReacties(): any{
+    this._user.threads.sort(compareReactions);
+  }
+}
+
+function compareLikes(a: Thread,b: Thread) {
+  if (a.aantalLikes < b.aantalLikes)
+    return 1;
+  if (a.aantalLikes > b.aantalLikes)
+    return -1;
+  return 0;
+}
+
+function compareReactions(a: Thread,b: Thread) {
+  if (a.aantalReacties < b.aantalReacties)
+    return 1;
+  if (a.aantalReacties > b.aantalReacties)
+    return -1;
+  return 0;
+}
+
+function compareDate(a: Thread,b: Thread) {
+  if (a.date < b.date)
+    return -1;
+  if (a.date > b.date)
+    return 1;
+  return 0;
 }

@@ -21,3 +21,17 @@
 .rTableAantalLikes{
     width: 10%;
 }
+
+tr:hover{
+    background: rgba(0,0,0,.05)!important;
+    color: rgba(0,0,0,.95)!important;
+}
+
+.klikbaar{
+    cursor: pointer !important;
+}
+
+.klikbaar:hover{
+    background: rgba(0,0,0,.05)!important;
+    color: rgba(0,0,0,.95)!important;
+}
