@@ -97,7 +97,7 @@ router.patch('/edit/:id', auth,function (req, res, next) {
 
 });
 
-router.post('/checkpassword/:id',function (req, res, next) {
+router.post('/checkpassword/:id', auth,function (req, res, next) {
   User.findOne({
     username: req.params.id
   }, function (err, user) {

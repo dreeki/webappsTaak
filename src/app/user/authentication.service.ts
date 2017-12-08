@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -71,7 +71,7 @@ export class AuthenticationService {
 
   checkPasswordCorrect(password: string, username: string): Observable<boolean> {
     const myUrl:string = this._url + '/checkpassword/' + username;
-    return this.http.post(`${this._url}/checkpassword/${username}`, { password }).map(res => res.json()).map(item => item.password === 'ok');
+    return this.http.post(`${this._url}/checkpassword/${username}`, { password }, { headers: new Headers({Authorization: `Bearer ${this.token}`})}).map(res => res.json()).map(item => item.password === 'ok');
     
   }
 }
